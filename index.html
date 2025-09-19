@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Prepositions Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="level-info">
+                <span>Level: <span id="current-level">1</span></span>
+            </div>
+            <div class="score-info">
+                <span>Score: <span id="score">0</span></span>
+            </div>
+            <div class="lives-info">
+                <span>Lives: </span>
+                <div id="hearts">
+                    <span class="heart">❤️</span>
+                    <span class="heart">❤️</span>
+                    <span class="heart">❤️</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div id="verb-display" class="verb-display"></div>
+            <div id="prepositions-container" class="prepositions-container"></div>
+        </div>
+
+        <div class="game-footer">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div class="level-verbs-info">
+                <span>Verbs completed: <span id="verbs-completed">0</span> / <span id="total-verbs">0</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="game-over-title">Game Over</h2>
+            <p id="game-over-message">You've completed all levels!</p>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <button id="restart-btn" onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+    <script type="module" src="game.js"></script>
+</body>
+</html>

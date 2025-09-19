@@ -1,42 +1,50 @@
 # Project Overview
 
-This project is a 2D web-based game built with the Phaser framework.
+This project is a 2D web-based game built desired tech stack. js or wasm. without requiring node
 
-The player controls a verb (e.g., bringen) displayed at the bottom of the screen.
-
-By touching and dragging, the player positions the verb and releases to shoot it upwards.
-
-From the top, five prepositions fall toward the bottom each round.
-
-The goal is to shoot only the correct prepositions associated with the given verb.
+The player should click on the correct preposition(s)
 
 Win/Lose conditions:
 
-If the player successfully hits all correct prepositions before they reach the bottom, they score and move instantly to the next verb.
+If the player successfully clicks on all correct prepositions, we show the next verb.
 
-If a correct preposition reaches the bottom or the player loses all lives, the game ends.
+## Gameplay Flow
+
+A verb appears in the center of the screen.
+
+Around it, all possible prepositions are displayed in light-blue circles, arranged like chairs around a table.
+
+The player clicks on the prepositions they think are correct.
 
 ## Game Levels
 
 The game consists of 8 levels.
 
 Each level introduces a set of verbs defined for that level.
+They should come in order. so on level 1, we show the verb only from this level. and when user has solved all the puzzles in this level, we go to the next level
 
-## Gameplay
+### Animations:
 
-Falling mechanics: Prepositions fall slowly from the top of the screen toward the bottom.
+Preposition button click: brief “pressed” animation.
 
-### Shooting:
+Correct answer highlight:
 
-Touch and release fires the verb straight upward.
+When a verb appears, all of its correct prepositions (clicked or not) slowly fade from light blue to green.
 
-If the projectile collides with a preposition, it is checked for correctness.
+The fade effect takes 15 seconds.
 
-### Hit results:
+This gives the player a hint toward the right answers.
 
-✅ Correct and last correct → advance immediately to the next verb.
+### Clicking on Prepositions:
 
-✅ Correct but others remain → the preposition explodes; continue shooting the rest.
+✅ Correct and last correct → Background turns green, Advance immediately to the next verb.
+
+✅ Correct but more remain → 
+Background turns green
+
+Button becomes disabled
+
+Wait for next input
 
 ❌ Incorrect → lose one heart.
 
@@ -46,22 +54,6 @@ The player starts with 3 hearts.
 
 Losing all hearts ends the game.
 
-## Movement
-
-Drag to move: Touch and drag left/right along the bottom of the screen.
-
-Shoot on release: Lifting your finger fires the verb upward.
-
-Boundaries: Movement is restricted within the horizontal screen limits.
-
-The verb starts centered at the bottom but can be repositioned horizontally before each shot.
-
-## Player Appearance
-
-The player’s avatar is represented by:
-
-
-The sprite should be wide enough to allow easy touch control.
 
 ## Scoring
 
@@ -76,10 +68,6 @@ Level 3: 5 points
 …and so on.
 
 The game records and stores the player’s high score.
-
-## Colors
-
-Prepositions are displayed with random background colors, regardless of correctness.
 
 ## Data Storage
 

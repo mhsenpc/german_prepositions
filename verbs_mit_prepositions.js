@@ -1,4 +1,4 @@
-const verbsMitPrepositions = [
+export const verbsMitPrepositions = [
     {
         level: 1,
         name: "abhängen",
