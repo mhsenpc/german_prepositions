@@ -2,6 +2,8 @@
 
 A fun and interactive web-based game designed to help German language learners master verb-preposition combinations. Perfect for students at all levels who want to improve their German grammar skills through engaging gameplay.
 
+**🔗 [Play Online Demo](https://mhsenpc.github.io/german_prepositions/)**
+
 ## 🎯 Features
 
 - **8 Progressive Levels**: Start with basic verbs and advance to more complex combinations
