@@ -85,10 +85,10 @@ class PrepositionsGame {
         }
 
         buttonElement.classList.add('disabled');
-        this.selectedPrepositions.push(preposition);
 
         if (this.correctPrepositions.includes(preposition)) {
             buttonElement.classList.add('correct');
+            this.selectedPrepositions.push(preposition);
 
             if (this.selectedPrepositions.length === this.correctPrepositions.length) {
                 this.allCorrectSelected();
