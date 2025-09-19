@@ -133,6 +133,7 @@ class PrepositionsGame {
     updateUI() {
         document.getElementById('current-level').textContent = this.currentLevel;
         document.getElementById('score').textContent = this.score;
+        document.getElementById('highscore').textContent = this.highScore;
         this.updateHearts();
         this.updateLevelProgress();
     }
