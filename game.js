@@ -57,6 +57,11 @@ class PrepositionsGame {
             button.className = 'preposition-btn';
             button.textContent = preposition;
             button.onclick = () => this.selectPreposition(preposition, button);
+
+            // Add hover events to show examples for correct prepositions
+            button.addEventListener('mouseenter', (e) => this.showExample(e, preposition));
+            button.addEventListener('mouseleave', () => this.hideExample());
+
             container.appendChild(button);
         });
 
@@ -75,6 +80,40 @@ class PrepositionsGame {
                 button.classList.add('hint');
             }
         });
+    }
+
+    showExample(event, preposition) {
+        // Only show example if this is a correct preposition for the current verb
+        if (!this.correctPrepositions.includes(preposition)) {
+            return;
+        }
+
+        const currentVerb = this.levelVerbs[this.currentVerbIndex];
+        const tooltip = document.getElementById('example-tooltip');
+
+        // Get the example for this preposition
+        const example = currentVerb.examples && currentVerb.examples[preposition];
+
+        if (example) {
+            tooltip.textContent = example;
+
+            // Position the tooltip above the button
+            const button = event.target;
+            const buttonRect = button.getBoundingClientRect();
+            const gameArea = document.querySelector('.game-area');
+            const gameAreaRect = gameArea.getBoundingClientRect();
+
+            tooltip.style.left = (buttonRect.left - gameAreaRect.left + buttonRect.width / 2) + 'px';
+            tooltip.style.top = (buttonRect.top - gameAreaRect.top - 60) + 'px';
+            tooltip.style.transform = 'translateX(-50%)';
+
+            tooltip.classList.add('show');
+        }
+    }
+
+    hideExample() {
+        const tooltip = document.getElementById('example-tooltip');
+        tooltip.classList.remove('show');
     }
 
     selectPreposition(preposition, buttonElement) {
