@@ -103,9 +103,13 @@ class PrepositionsGame {
             const gameArea = document.querySelector('.game-area');
             const gameAreaRect = gameArea.getBoundingClientRect();
 
-            tooltip.style.left = (buttonRect.left - gameAreaRect.left + buttonRect.width / 2) + 'px';
-            tooltip.style.top = (buttonRect.top - gameAreaRect.top - 60) + 'px';
-            tooltip.style.transform = 'translateX(-50%)';
+            // Calculate left position to center the tooltip above the button
+            const tooltipWidth = 300; // max-width from CSS
+            const leftPosition = (buttonRect.left - gameAreaRect.left + buttonRect.width / 2) - (tooltipWidth / 2);
+
+            tooltip.style.left = Math.max(0, Math.min(leftPosition, gameAreaRect.width - tooltipWidth)) + 'px';
+            tooltip.style.top = (buttonRect.top - gameAreaRect.top - 70) + 'px';
+            tooltip.style.transform = 'none';
 
             tooltip.classList.add('show');
         }
